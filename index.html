@@ -11,7 +11,6 @@
   <body>
 	<script src="index.js"></script>
     <h1>COOL D4H API STUFF!!!</h1>
-    <br>
     <p>IF YOU ARE NOT SEB OR THIA, PLEASE READ THIS:<br>
       This is running locally on your machine, so your personal access token isn't being stored anywhere. That being said,
       it's generally a REALLY bad idea to put personal access tokens into random websites. Please take a look at the source
@@ -26,8 +25,18 @@
         <button type="submit">Submit + Validate Access Token</button>
     </form>
     <h3> Authentication output:</h3>
-    <p id="auth_output"> Awaiting authentication.</p>
-      
+    <p id="auth_output" class="json"> Awaiting authentication.</p>
+    <br>
+    <br>
+    <h2> Bulk Upload Exercises: </h2>
+    <form method="post" enctype="multipart/form-data" id="bulkupload">
+        <label for="file">Choose file to upload (spreadsheets only)</label>
+        <input type="file" id="docpicker" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+        <button type="submit">Submit + Upload</button>
+    </form>
+    <h3> Upload output:</h3>
+    <p id="auth_upload" class="json"> Awaiting upload.</p>
+    <br>
   </body>
 
 </html>

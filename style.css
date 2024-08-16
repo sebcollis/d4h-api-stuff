@@ -8,3 +8,9 @@ button {
     font-family: "Comic Sans MS";
     color: #004a33;
 }
+
+.json {
+    font-family: "Arial";
+    background-color: white;
+    color: black;
+}
