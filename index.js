@@ -40,7 +40,7 @@ async function authenticate_validate() {
 };
   try {
     document.getElementById("auth_output").innerHTML = "Loading authentication...";
-    const response = await fetch(url);
+    const response = await fetch(url, options);
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
@@ -79,14 +79,14 @@ function date_time_parser(date, time){
 async function upload_exercises(file){
   var uploaded_csv = CSVToJSON(file)
   for(exercise in uploaded_csv){
-    console.log(exercise)
+    console.log(uploaded_csv[exercise])
     //context n context id r hardcoded in
   const url = 'https://api.team-manager.us.d4h.com/v3/team/289/exercises';
   //need to parse this all from csv!!
   const data = {
     "reference": uploaded_csv[exercise].Code,
     "referenceDescription": uploaded_csv[exercise].Title,
-    "description": uploaded_csv[exercise].Description,
+    "description": uploaded_csv[exercise].Description ,
     "plan": uploaded_csv[exercise].Plan,
     "shared": false,
     "fullTeam": true,
@@ -105,7 +105,7 @@ async function upload_exercises(file){
 };
   try {
     document.getElementById("auth_upload").innerHTML = "Loading upload...";
-    const response = await fetch(url);
+    const response = await fetch(url, options);
     if (!response.ok) {
       throw new Error(`Response status: ${response.status}`);
     }
