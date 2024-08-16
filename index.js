@@ -73,7 +73,7 @@ function date_time_parser(date, time){
   minute = time_array[2] + time_array[3] + ""
 
   //if anything is gonna break itll be this btw
-  return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000Z")
+  return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+12:00")
 }
 
 async function upload_exercises(file){
