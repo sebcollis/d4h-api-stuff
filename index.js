@@ -52,10 +52,22 @@ async function authenticate_validate() {
   }
 }
 
+Date.prototype.isDstObserved = function () {
+  return this.getTimezoneOffset() < this.stdTimezoneOffset();
+}
+
+var today = new Date();
+if (today.isDstObserved()) { 
+  alert ("Daylight saving time!");
+}
+
+
 //HATE HATE HATE HATE HATE
 function date_time_parser(date, time){
   var year, month, day, hour, minute
   //probably could have done this with regex but i hate that so sue me
+
+  //update from self a few months later: i like regex now and also WHY did i do it like this?????
   var date_array = date.split("")
   if(date_array.length == 9){ 
     day = "0" + date_array[0] 
@@ -73,7 +85,10 @@ function date_time_parser(date, time){
   minute = time_array[2] + time_array[3] + ""
 
   //if anything is gonna break itll be this btw
-  return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+12:00")
+  var today = new Date()
+  if (today.isDstObserved()) { return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+13:00") }
+  else{ return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+12:00") }
+  
 }
 
 async function upload_exercises(file){
