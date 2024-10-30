@@ -86,8 +86,8 @@ function date_time_parser(date, time){
 
   //if anything is gonna break itll be this btw
   var today = new Date()
-  if (today.isDstObserved()) { return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+13:00") }
-  else{ return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+12:00") }
+  if (today.isDstObserved()) { return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+12:00") }
+  else{ return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+13:00") }
   
 }
 
