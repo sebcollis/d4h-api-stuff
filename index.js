@@ -81,8 +81,14 @@ function date_time_parser(date, time){
   }
 
   var time_array = time.split("")
-  hour = time_array[0] + time_array[1] + ""
-  minute = time_array[2] + time_array[3] + ""
+  if(time_array.length == 3){ //fix leading 0 problem (sharknado)
+    hour = 0 + time_array[0] + ""
+    minute = time_array[1] + time_array[2] + ""
+  }
+  else{
+    hour = time_array[0] + time_array[1] + ""
+    minute = time_array[2] + time_array[3] + ""
+  }
 
   //if anything is gonna break itll be this btw
   var today = new Date()
