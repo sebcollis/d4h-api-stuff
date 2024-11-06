@@ -53,8 +53,9 @@ async function authenticate_validate() {
 }
 
 //STOLE THIS OFF THE INTERNET
-Date.prototype.isDstObserved = function () {
-  return this.getTimezoneOffset() < this.stdTimezoneOffset();
+function isDstObserved(date) {
+  var control = new  Date(2024, 8, 1) //this will always not be dst
+  return date.getTimezoneOffset() < control.getTimezoneOffset();
 }
 
 //HATE HATE HATE HATE HATE
@@ -87,7 +88,7 @@ function date_time_parser(date, time){
 
   //if anything is gonna break itll be this btw
   var ex_date = new Date(year, month, day)
-  if (ex_date.isDstObserved()) { return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+13:00") }
+  if (isDstObserved(ex_date)) { return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+13:00") }
   else{ return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+12:00") }
   
 }
