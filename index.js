@@ -64,7 +64,11 @@ function date_time_parser(date, time){
   //probably could have done this with regex but i hate that so sue me
 
   //update from self a few months later: i like regex now and also WHY did i do it like this?????
-  var date_array = date.split("")
+  if (date && typeof date === 'string') {
+    var date_array = date.split("");
+  } else {
+      console.error('Invalid date value:', date);
+  }
 
   console.log("date: " + date)
   console.log("date array: " + date_array)
@@ -114,7 +118,7 @@ async function upload_exercises(file){
     "description": uploaded_csv[exercise].Description ,
     "plan": uploaded_csv[exercise].Plan,
     "shared": false,
-    "fullTeam": true,
+    "fullTeam": "1",
     "startsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].Start),
     "endsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].End),
     "locationBookmarkId" : uploaded_csv[exercise].Location
