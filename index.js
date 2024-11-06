@@ -111,7 +111,7 @@ async function upload_exercises(file){
   const data = {
     "reference": uploaded_csv[exercise].Code,
     "referenceDescription": uploaded_csv[exercise].Title,
-    "description": uploaded_csv[exercise].Description,
+    "description": uploaded_csv[exercise].Description ,
     "plan": uploaded_csv[exercise].Plan,
     "shared": false,
     "fullTeam": true,
