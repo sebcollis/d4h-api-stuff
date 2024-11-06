@@ -65,6 +65,7 @@ function date_time_parser(date, time){
 
   //update from self a few months later: i like regex now and also WHY did i do it like this?????
   var date_array = date.split("")
+
   if(date_array.length == 9){ 
     day = "0" + date_array[0] 
     month = date_array[2] + date_array[3] + ""
@@ -105,8 +106,8 @@ async function upload_exercises(file){
     "referenceDescription": uploaded_csv[exercise].Title,
     "description": uploaded_csv[exercise].Description ,
     "plan": uploaded_csv[exercise].Plan,
-    "shared": "false",
-    "fullTeam": "true",
+    "shared": false,
+    "fullTeam": true,
     "startsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].Start),
     "endsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].End),
     "locationBookmarkId" : uploaded_csv[exercise].Location
