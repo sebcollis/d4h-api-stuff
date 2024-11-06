@@ -66,6 +66,9 @@ function date_time_parser(date, time){
   //update from self a few months later: i like regex now and also WHY did i do it like this?????
   var date_array = date.split("")
 
+  console.log("date: " + date)
+  console.log("date array: " + date_array)
+
   if(date_array.length == 9){ 
     day = "0" + date_array[0] 
     month = date_array[2] + date_array[3] + ""
@@ -78,6 +81,10 @@ function date_time_parser(date, time){
   }
 
   var time_array = time.split("")
+
+  console.log("time: " + time)
+  console.log("time array: " + time_array)
+
   if(time_array.length == 3){ //fix leading 0 problem (sharknado)
     hour = 0 + time_array[0] + ""
     minute = time_array[1] + time_array[2] + ""
@@ -104,7 +111,7 @@ async function upload_exercises(file){
   const data = {
     "reference": uploaded_csv[exercise].Code,
     "referenceDescription": uploaded_csv[exercise].Title,
-    "description": uploaded_csv[exercise].Description ,
+    "description": uploaded_csv[exercise].Description,
     "plan": uploaded_csv[exercise].Plan,
     "shared": false,
     "fullTeam": true,
