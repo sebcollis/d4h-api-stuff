@@ -122,7 +122,7 @@ async function upload_exercises(file){
       "description": uploaded_csv[exercise].Description ,
       "plan": uploaded_csv[exercise].Plan,
       "shared": "false",
-      "fullTeam": "true",
+      "fullTeam": "false",
       "startsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].Start),
       "endsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].End),
       "locationBookmarkId" : uploaded_csv[exercise].Location
