@@ -108,42 +108,48 @@ function date_time_parser(date, time){
 async function upload_exercises(file){
   var uploaded_csv = CSVToJSON(file)
   for(exercise in uploaded_csv){
-    console.log(uploaded_csv[exercise])
-    //context n context id r hardcoded in
-  const url = 'https://api.team-manager.us.d4h.com/v3/team/289/exercises';
-  //need to parse this all from csv!!
-  const data = {
-    "reference": uploaded_csv[exercise].Code,
-    "referenceDescription": uploaded_csv[exercise].Title,
-    "description": uploaded_csv[exercise].Description ,
-    "plan": uploaded_csv[exercise].Plan,
-    "shared": false,
-    "fullTeam": "1",
-    "startsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].Start),
-    "endsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].End),
-    "locationBookmarkId" : uploaded_csv[exercise].Location
-  };
-  console.log(data)
-  const options = {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
-  },
-  body: JSON.stringify(data)
-};
-  try {
-    document.getElementById("auth_upload").innerHTML = "Loading upload...";
-    const response = await fetch(url, options);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
+    if(uploaded_csv[exercise].Code == null || uploaded_csv[exercise].Code == ""){
 
-    const json = await response.json();
-    document.getElementById("auth_upload").innerHTML += json;
-  } catch (error) {
-    document.getElementById("auth_upload").innerHTML += error.message;
-  }
+    }
+    else{
+      console.log(uploaded_csv[exercise])
+    //context n context id r hardcoded in
+    const url = 'https://api.team-manager.us.d4h.com/v3/team/289/exercises';
+    //need to parse this all from csv!!
+    const data = {
+      "reference": uploaded_csv[exercise].Code,
+      "referenceDescription": uploaded_csv[exercise].Title,
+      "description": uploaded_csv[exercise].Description ,
+      "plan": uploaded_csv[exercise].Plan,
+      "shared": false,
+      "fullTeam": 1,
+      "startsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].Start),
+      "endsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].End),
+      "locationBookmarkId" : uploaded_csv[exercise].Location
+    };
+    console.log(data)
+    const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify(data)
+  };
+    try {
+      document.getElementById("auth_upload").innerHTML = "Loading upload...";
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
+      }
+
+      const json = await response.json();
+      document.getElementById("auth_upload").innerHTML += json;
+    } catch (error) {
+      document.getElementById("auth_upload").innerHTML += error.message;
+    }
+    }
+    
   }
 }
 
