@@ -52,15 +52,10 @@ async function authenticate_validate() {
   }
 }
 
+//STOLE THIS OFF THE INTERNET
 Date.prototype.isDstObserved = function () {
   return this.getTimezoneOffset() < this.stdTimezoneOffset();
 }
-
-var today = new Date();
-if (today.isDstObserved()) { 
-  alert ("Daylight saving time!");
-}
-
 
 //HATE HATE HATE HATE HATE
 function date_time_parser(date, time){
@@ -91,9 +86,9 @@ function date_time_parser(date, time){
   }
 
   //if anything is gonna break itll be this btw
-  var today = new Date()
-  if (today.isDstObserved()) { return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+12:00") }
-  else{ return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+13:00") }
+  var ex_date = new Date(year, month, day)
+  if (ex_date.isDstObserved()) { return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+13:00") }
+  else{ return Date.parse(year + "-" + month + "-" + day + "T" + hour + ":" + minute + ":00.000+12:00") }
   
 }
 
