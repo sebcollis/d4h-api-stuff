@@ -4,39 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>D4H Stuff</title>
-    <link rel="stylesheet" href="style.css">
+    <title>D4H API</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
   </head>
 
   <body>
-	<script src="index.js"></script>
-    <h1>COOL D4H API STUFF!!!</h1>
-    <p>IF YOU ARE NOT SEB OR THIA, PLEASE READ THIS:<br>
-      This is running locally on your machine, so your personal access token isn't being stored anywhere. That being said,
-      it's generally a REALLY bad idea to put personal access tokens into random websites. Please take a look at the source
-      code so you know what it's doing!
-    </p>
-    <br>
-    <br>
-    <h2> Authentication: </h2>
-    <form id="access">
-        <label for="access_token">Access Token:</label>
-        <input type="text" id="access_token" name="access_token">
-        <button type="submit">Submit + Validate Access Token</button>
-    </form>
-    <h3> Authentication output:</h3>
-    <p id="auth_output" class="json"> Awaiting authentication.</p>
-    <br>
-    <br>
-    <h2> Bulk Upload Exercises: </h2>
-    <form method="post" enctype="multipart/form-data" id="bulkupload">
-        <label for="file">Choose file to upload (spreadsheets only)</label>
-        <input type="file" id="docpicker" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-        <button type="submit">Submit + Upload</button>
-    </form>
-    <h3> Upload output:</h3>
-    <p id="auth_upload" class="json"> Awaiting upload.</p>
-    <br>
+	  <script src="index.js"></script>
+
+    <ul id="navigation">
+      <li><a class="active" href="index.html">Home</a></li>
+      <li><a href="authentication.html">Authentication</a></li>
+      <li><a href="bulkexup.html">Bulk Exercise Upload</a></li>
+      <div class="nav-title">D4H API</div>
+      <div class="nav-subtitle">For New Zealand Response Teams</div>
+    </ul>
+
+    <div id = "content">
+      <h1>COOL D4H API STUFF!!!</h1>
+      <p>IF YOU ARE NOT SEB OR THIA, PLEASE READ THIS:<br>
+        This is running locally on your machine, so your personal access token isn't being stored anywhere. That being said,
+        it's generally a REALLY bad idea to put personal access tokens into random websites. Please take a look at the source
+        code so you know what it's doing!
+      </p>
+      <br>
+      <br>
+      <h2> Authentication: </h2>
+      <form id="access">
+          <label for="access_token">Access Token:</label>
+          <input type="text" id="access_token" name="access_token">
+          <button type="submit">Submit + Validate Access Token</button>
+      </form>
+      <h3> Authentication output:</h3>
+      <p id="auth_output" class="json"> Awaiting authentication.</p>
+      <br>
+      <br>
+      <h2> Bulk Upload Exercises: </h2>
+      <form method="post" enctype="multipart/form-data" id="bulkupload">
+          <label for="file">Choose file to upload (spreadsheets only)</label>
+          <input type="file" id="docpicker" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+          <button type="submit">Submit + Upload</button>
+      </form>
+      <h3> Upload output:</h3>
+      <p id="auth_upload" class="json"> Awaiting upload.</p>
+      <br>
+    </div>
   </body>
 
 </html>
