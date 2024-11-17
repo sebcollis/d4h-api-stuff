@@ -1,18 +1,57 @@
 body {
-    font-family: "Comic Sans MS";
-    color: #004a33;
-    background-color: #EBFFF9;
+    font-family: "Arial";
+    color: #000000;
+    background-color: #FFFFFF;
     margin: 0%;
 }
 
+h1 {
+    color:#B70000;
+    font-style: normal;
+}
+
+h2{
+    color: #B70000;
+    padding-top: 15px;
+}
+
+h3{
+    padding-top: 10px;
+}
+
+p{
+    width: 85%;
+    font-size: 15px;
+}
+
 button {
-    font-family: "Comic Sans MS";
-    color: #004a33;
+    border: 2px solid #E5E5E5;
+    background-color: #F5F5F5;
+    transition-duration: 0.4s;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #B70000;
+    color: #FFFFFF;
+}
+
+/* Labels next to buttons */
+label {
+    font-size: 18px;
+}
+
+/* Text Feild */
+input {
+    background-color: #E5E5E5;
+    border: none;
+    font-size: 18px;
 }
 
 .json {
     font-family: "Arial";
-    background-color: white;
+    background-color: transparent;
     color: black;
 }
 
@@ -99,7 +138,33 @@ button {
 }
 
 #content {
-    margin-top: 82px;
+    margin-top: 122px;
+    padding: 16px;
+    z-index: 1;
+}
+
+/* Light Grey Trapizoid Object in background */
+#content::after{
+    content: "";
+    position: absolute;
+    top: 122px;
+    left: 0;
+    width: 85%;
+    height: 0px;
+    border-top: 650px solid #F5F5F5;
+    border-left: 0px solid transparent;
+    border-right: 110px solid transparent;
+    z-index: -1;
+}
+
+#auth_output{
+    color: #E5E5E5;
+    font-size: 18px;
+}
+
+#auth_upload{
+    color: #E5E5E5;
+    font-size: 18px;
 }
 
 
