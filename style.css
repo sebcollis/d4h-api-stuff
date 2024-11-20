@@ -120,7 +120,7 @@ img{
     position: absolute;
     top: 0;
     right: 0; /* Position it on the right side */
-    width: 60%; /*How far across the Nav Bar the object is going, has to be a % so it can adjust as window resizes */
+    width: 40%; /*How far across the Nav Bar the object is going, has to be a % so it can adjust as window resizes */
     height: 0px;
     border-left: 40px solid transparent; /* Controls the angle on the left */
     border-right: 0px solid transparent; /* Make right side straight */
@@ -134,7 +134,7 @@ img{
     position: absolute;
     top: 0;
     right: 0;
-    width: 55%;
+    width: 35%;
     height: 0px;
     border-left: 40px solid transparent;
     border-right: 0px solid transparent;
@@ -165,12 +165,12 @@ img{
 }
 
 #auth_output{
-    color: #E5E5E5;
+    color: #B5B5B5;
     font-size: 18px;
 }
 
 #auth_upload{
-    color: #E5E5E5;
+    color: #B5B5B5;
     font-size: 18px;
 }
 
@@ -181,4 +181,8 @@ img{
     overflow: hidden;
     color: #000000;
     text-align: right;
+}
+
+span{
+    padding-right: 10%;
 }
