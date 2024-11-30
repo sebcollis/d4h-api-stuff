@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>D4H API</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
     <body>
-        <script src="index.js"></script>
+        <script src="authentication.js"></script>
 
         <ul id="navigation">
           <li><a href="index.html">Home</a></li>
@@ -16,7 +20,14 @@
         </ul>
 
         <div id = "content">
-            
+            <h2> Authentication: </h2>
+            <form id="access">
+                <label for="access_token">Access Token:</label>
+                <input type="text" id="access_token" name="access_token">
+                <button type="submit">Submit + Validate Access Token</button>
+            </form>
+            <h3> Authentication output:</h3>
+            <p id="auth_output" class="json"> Awaiting authentication.</p>
         </div>
     </body>
 </html>

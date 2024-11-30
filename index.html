@@ -9,7 +9,7 @@
   </head>
 
   <body>
-	  <script src="index.js"></script>
+	  <!-- <script src="index.js"></script> -->
 
     <ul id="navigation">
       <li><a class="active" href="index.html">Home</a></li>
@@ -26,23 +26,6 @@
         it's generally a REALLY bad idea to put personal access tokens into random websites. Please take a look at the source
         code so you know what it's doing!
       </p>
-      <h2> Authentication: </h2>
-      <form id="access">
-          <label for="access_token">Access Token:</label>
-          <input type="text" id="access_token" name="access_token">
-          <button type="submit">Submit + Validate Access Token</button>
-      </form>
-      <h3> Authentication output:</h3>
-      <p id="auth_output" class="json"> Awaiting authentication.</p>
-      <h2> Bulk Upload Exercises: </h2>
-      <form method="post" enctype="multipart/form-data" id="bulkupload">
-          <label for="file">Choose file to upload: </label>
-          <input type="file" id="docpicker" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-          <button type="submit">Submit + Upload</button>
-          <p>(csv spreadsheets only)</p>
-      </form>
-      <h3> Upload output:</h3>
-      <p id="auth_upload" class="json"> Awaiting upload.</p>
       <br>
     </div>
 

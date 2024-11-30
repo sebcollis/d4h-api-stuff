@@ -1,17 +1,7 @@
-var token = "";
 var csv;
 
 window.addEventListener("load", () => {
   //DO NOT GET RID OF ^ BTW ITS MAKING SURE EVERYTHINGS LOADED BEFORE THE CODE RUNS
-
-  //PERSONAL ACCESS TOKEN VALIDATION
-  const form = document.getElementById('access');
-  form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Prevents the default form submission
-    const result = form.elements['access_token']; 
-    token = result.value
-    authenticate_validate();
-  });
 
   //GET UPLOADED FILE
   document.getElementById('bulkupload').addEventListener('submit', (event) => {
@@ -22,7 +12,6 @@ window.addEventListener("load", () => {
     //async bullshit. idk sue me
     if (csv) {
       csv.text().then(result =>{
-        console.log(result)
         upload_exercises(result)
       });      
     }
@@ -30,35 +19,11 @@ window.addEventListener("load", () => {
 
 });
 
-async function authenticate_validate() {
-  const  url = 'https://api.team-manager.us.d4h.com/v3/whoami';
-  const options = {
-  method: 'GET',
-  headers: {
-    'Authorization': `Bearer ${token}`
-  }
-};
-  try {
-    document.getElementById("auth_output").innerHTML = "Loading authentication...";
-    const response = await fetch(url, options);
-    if (!response.ok) {
-      throw new Error(`Response status: ${response.status}`);
-    }
-
-    const json = await response.json();
-    document.getElementById("auth_output").innerHTML = json;
-  } catch (error) {
-    document.getElementById("auth_output").innerHTML = error.message;
-  }
-}
-
-//STOLE THIS OFF THE INTERNET
 function isDstObserved(date) {
   var control = new  Date(2024, 8, 1) //this will always not be dst
   return date.getTimezoneOffset() < control.getTimezoneOffset();
 }
 
-//HATE HATE HATE HATE HATE
 function date_time_parser(date, time){
   var year, month, day, hour, minute
   //probably could have done this with regex but i hate that so sue me
@@ -106,13 +71,13 @@ function date_time_parser(date, time){
 }
 
 async function upload_exercises(file){
+  console.log("called")
   var uploaded_csv = CSVToJSON(file)
   for(exercise in uploaded_csv){
     if(uploaded_csv[exercise].Code == null || uploaded_csv[exercise].Code == ""){
-
+      console.log("error with exercise: " + uploaded_csv[exercise])
     }
     else{
-      console.log(uploaded_csv[exercise])
     //context n context id r hardcoded in
     const url = 'https://api.team-manager.us.d4h.com/v3/team/289/exercises';
     //need to parse this all from csv!!
@@ -127,12 +92,13 @@ async function upload_exercises(file){
       "endsAt": date_time_parser(uploaded_csv[exercise].Date, uploaded_csv[exercise].End),
       "locationBookmarkId" : uploaded_csv[exercise].Location
     };
-    console.log(data)
     const options = {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${sessionStorage.getItem("token")}`,
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS'
     },
     body: JSON.stringify(data)
   };

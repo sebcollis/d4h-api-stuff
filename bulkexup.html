@@ -5,7 +5,7 @@
     </head>
 
     <body>
-        <script src="index.js"></script>
+        <script src="bulkupload.js"></script>
 
         <ul id="navigation">
           <li><a href="index.html">Home</a></li>
@@ -16,7 +16,15 @@
         </ul>
 
         <div id = "content">
-            
+            <h2> Bulk Upload Exercises: </h2>
+            <form method="post" enctype="multipart/form-data" id="bulkupload">
+                <label for="file">Choose file to upload: </label>
+                <input type="file" id="docpicker" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+                <button type="submit">Submit + Upload</button>
+                <p>(csv spreadsheets only)</p>
+            </form>
+            <h3> Upload output:</h3>
+            <p id="auth_upload" class="json"> Awaiting upload.</p>
         </div>
     </body>
 </html>
