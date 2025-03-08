@@ -1,0 +1,17 @@
+{
+  "name": "d4h-api-stuff",
+  "productName" : "D4H Tools",
+  "version": "1.0.0",
+  "description": "HOW TO USE: just open the html file. simple as that.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "repackage" : "npm exec @electron/packager ./ D4H Tools --all --overwrite"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@electron/packager": "^18.3.6",
+    "electron": "^35.0.0"
+  }
+}
